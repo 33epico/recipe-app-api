@@ -15,8 +15,8 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-    
-    def create_superuser( self , email, password):
+
+    def create_superuser(self ,email ,password):
         """Funcion para crear un super usuario, no se pone extra_fields por """
         user = self.create_user(email, password)
         user.is_staff = True
@@ -26,11 +26,11 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
-        """Modelo de usuario propio con soporte del email en vez de nombre de usuario"""
-        email = models.EmailField ( max_length = 255, unique = True)
-        name = models.CharField ( max_length = 255)
-        is_active = models.BooleanField ( default = True)
-        is_staff = models.BooleanField ( default =False)
+        """Modelo de usuario con soporte del email en vez de nombre de usuario"""
+        email = models.EmailField (max_length = 255, unique = True)
+        name = models.CharField (max_length = 255)
+        is_active = models.BooleanField (default = True)
+        is_staff = models.BooleanField (default =False)
 
         
         #esto establece el manejador del modelo de usuario, que es la clase de arriba
