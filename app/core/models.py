@@ -25,6 +25,7 @@ class UserManager(BaseUserManager):
 
         return user
 
+
 class User(AbstractBaseUser, PermissionsMixin):
         """Modelo de usuario con soporte email en vez de nombre de usuario"""
         email = models.EmailField(max_length=255, unique=True)
@@ -32,13 +33,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         is_active = models.BooleanField(default=True)
         is_staff = models.BooleanField(default=False)
 
-#esto establece el manejador del modelo de usuario, que es la clase de arriba
+# esto establece el manejador del modelo de usuario, que es la clase de arriba
         objects = UserManager()
-
-#Esto es lo que django utilizará para reconocer al usuario en la autentificación
+        
+# Es lo que django utilizará para reconocer al usuario en la autentificación
         USERNAME_FIELD = 'email'
-
-
-
-
-    
