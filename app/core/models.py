@@ -34,6 +34,5 @@ class User(AbstractBaseUser, PermissionsMixin):
         is_staff = models.BooleanField(default=False)
 # Esto pone el manejador del modelo de usuario, que es la clase de arriba
         objects = UserManager()
-# Es lo que django utilizará para reconocer al usuario en la autentificación
         USERNAME_FIELD = 'email'
-        
+# Es lo que django utilizará para reconocer al usuario en la autentificación
