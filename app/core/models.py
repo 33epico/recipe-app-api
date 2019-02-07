@@ -17,7 +17,7 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password):
-        """Funcion para crear un super usuario, no se pone extra_fields por """
+        """Funcion xa crear un super usuario, no se pone extra_fields por """
         user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
@@ -32,9 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         name = models.CharField(max_length=255)
         is_active = models.BooleanField(default=True)
         is_staff = models.BooleanField(default=False)
-
-# esto establece el manejador del modelo de usuario, que es la clase de arriba
+# Esto pone el manejador del modelo de usuario, que es la clase de arriba
         objects = UserManager()
-        
 # Es lo que django utilizará para reconocer al usuario en la autentificación
         USERNAME_FIELD = 'email'
