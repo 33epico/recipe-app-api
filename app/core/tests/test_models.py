@@ -29,8 +29,8 @@ class ModelsTest (TestCase):
             get_user_model().objects.create_user(None, 'Testpass123')
 
     def test_create_new_superuser(self):
-        """ Test creando un nuevo super usuario"""
-# La función create_superuser es parte del PermissionsMixin
+        """ Test creando un nuevo super usuario """
+# La función create_superuser es parte del PermissionsMixin 2
         user = get_user_model().objects.create_superuser(
             'test@londonappdev.com',
             'Testpass123'
@@ -38,4 +38,3 @@ class ModelsTest (TestCase):
 
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
-        
