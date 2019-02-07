@@ -36,4 +36,3 @@ class User(AbstractBaseUser, PermissionsMixin):
         objects = UserManager()
 # Es lo que django utilizará para reconocer al usuario en la autentificación
         USERNAME_FIELD = 'email'
-        
